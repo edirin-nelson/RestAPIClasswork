@@ -4,8 +4,6 @@ import com.example.restapiclasswork.DTO.UserDTO;
 import com.example.restapiclasswork.Model.User;
 import com.example.restapiclasswork.Repository.UserRepository;
 import com.example.restapiclasswork.Service.UserService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
