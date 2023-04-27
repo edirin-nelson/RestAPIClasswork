@@ -4,6 +4,8 @@ import com.example.restapiclasswork.DTO.UserDTO;
 import com.example.restapiclasswork.Model.User;
 import com.example.restapiclasswork.Repository.UserRepository;
 import com.example.restapiclasswork.Service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,17 +32,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findById(Long id) {
         User user = userRepository.findById(id).orElseThrow(()->
-                new NullPointerException("No user"));
+                new NullPointerException("No user found with id: "+id));
         return user;
     }
 
     @Override
     public void deleteById(Long id) {
-
+        userRepository.deleteById(id);
     }
 
     @Override
     public User loginUser(UserDTO userDTO) {
-        return null;
+        return userRepository.findUserByUsernameAndPassword(userDTO.getUsername(), userDTO.getPassword());
     }
 }
