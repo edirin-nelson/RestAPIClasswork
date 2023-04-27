@@ -39,7 +39,7 @@ public class UserController {
         return "User with id: "+id+ " successfully deleted";
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public User findById(@RequestBody UserDTO userDTO, HttpServletRequest httpServletRequest){
         User user = userService.loginUser(userDTO);
         HttpSession session = httpServletRequest.getSession();

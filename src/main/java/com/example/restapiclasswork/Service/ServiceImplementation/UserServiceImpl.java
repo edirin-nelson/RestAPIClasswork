@@ -50,6 +50,6 @@ public class UserServiceImpl implements UserService {
                 new NullPointerException("No user found with id: "+id));
         existingUser.setUsername(userDTO.getUsername());
         existingUser.setPassword(userDTO.getPassword());
-        return existingUser;
+        return userRepository.save(existingUser);
     }
 }
