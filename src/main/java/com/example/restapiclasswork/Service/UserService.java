@@ -1,2 +1,20 @@
-package com.example.restapiclasswork.Service;public interface UserService {
+package com.example.restapiclasswork.Service;
+
+import com.example.restapiclasswork.DTO.UserDTO;
+import com.example.restapiclasswork.Model.User;
+
+import java.util.List;
+
+public interface UserService {
+    User saveUser(User user);
+
+    User saveUser(UserDTO userDTO);
+
+    List<User> findAll();
+
+    User findById(Long id);
+
+    void deleteById(Long id);
+
+    User loginUser(UserDTO userDTO);
 }
