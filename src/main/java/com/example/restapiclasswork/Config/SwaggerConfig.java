@@ -17,8 +17,8 @@ public class SwaggerConfig {
     public OpenAPI api(){
         return new OpenAPI()
                 .info(new Info()
-                        .title("Fashion Blog API")
-                        .description("Api that provides crud operations for a fashion blog.")
+                        .title("User API")
+                        .description("Api that provides crud operations for users.")
                         .version(version));
     }
 
@@ -30,21 +30,4 @@ public class SwaggerConfig {
                 .group("Users")
                 .pathsToMatch("/user/**").build();
     }
-
-    @Bean
-    public GroupedOpenApi adminEndpoint(){
-        return  GroupedOpenApi
-                .builder()
-                .group("Admin")
-                .pathsToMatch("/admin/**").build();
-    }
-
-    @Bean
-    public GroupedOpenApi postEndpoint(){
-        return  GroupedOpenApi
-                .builder()
-                .group("Post")
-                .pathsToMatch("/posts/**").build();
-    }
-
 }
