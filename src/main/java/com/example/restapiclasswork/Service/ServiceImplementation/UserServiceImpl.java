@@ -43,4 +43,13 @@ public class UserServiceImpl implements UserService {
     public User loginUser(UserDTO userDTO) {
         return userRepository.findUserByUsernameAndPassword(userDTO.getUsername(), userDTO.getPassword());
     }
+
+    @Override
+    public User updateUser(Long id, UserDTO userDTO) {
+        User existingUser = userRepository.findById(id).orElseThrow(()->
+                new NullPointerException("No user found with id: "+id));
+        existingUser.setUsername(userDTO.getUsername());
+        existingUser.setPassword(userDTO.getPassword());
+        return existingUser;
+    }
 }
