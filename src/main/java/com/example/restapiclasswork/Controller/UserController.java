@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public User findById(@RequestBody UserDTO userDTO, HttpServletRequest httpServletRequest){
+    public User loginUser(@RequestBody UserDTO userDTO, HttpServletRequest httpServletRequest){
         User user = userService.loginUser(userDTO);
         HttpSession session = httpServletRequest.getSession();
         session.setAttribute("id", user.getId());
